@@ -2,6 +2,19 @@
   text-align: center;
 }
 
+.App-nav {
+  height: 4vmin;
+  flex-direction: row;
+  display: inline-flex;
+  width: 100%;
+  background-color: lightblue;
+}
+
+.App-nav div {
+  margin-right: .5em;
+  margin-left: .5em;
+}
+
 .App-logo {
   height: 40vmin;
 }

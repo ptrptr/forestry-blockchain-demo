@@ -11,23 +11,22 @@ import {
 import QRCode from 'qrcode.react';
 import logo from './logo.svg';
 import './App.css';
+import QRRegister from './QRRegister';
 
 export default function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
+      <div class="App">
+        <nav class="App-nav">
+          <div>
+            <Link to="/">Home</Link>
+          </div>
+           <div>
               <Link to="/printer">Printer</Link>
-            </li>
-            <li>
+            </div>
+            <div>
               <Link to="/issue">Issue</Link>
-            </li>
-          </ul>
+            </div>
         </nav>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -35,6 +34,7 @@ export default function App() {
           <Router path="/issue">
             <QRIssuer></QRIssuer>
           </Router>
+          <Route path="/register/:hash" component={QRRegister} />
           <Route path="/printer/:hash" component={QRPrinter} />
           <Route path="/history/:hash" component={QRHistory} />
           <Router path="/">
