@@ -2,7 +2,8 @@
 import {createHash} from 'crypto';
 
 var STORE = {};
-const PARENT_ATTR="_parent";
+export const PARENT_ATTR="_parent";
+export const HASH_ATTR="_hash";
 
 function calcHash(o) {
     var message = JSON.stringify(o);
@@ -17,7 +18,7 @@ function store(o) {
 }
 
 export function create(parent, data) {
-    if(data == null || data[PARENT_ATTR] != null) {
+    if(data == null || data[PARENT_ATTR] != null && data[HASH_ATTR] != null) {
         throw "Bad data";
     }
     if(parent == null) {
@@ -31,4 +32,16 @@ export function issue(data) {
     if(data == null) throw "Bad data";
     console.log("DATA: " + JSON.stringify(STORE));
     return store(data);
+}
+
+export function history(hash) {
+    var result = [];
+    var cursor = hash;
+    while(cursor != null && STORE[cursor] != null) {
+        var o = STORE[cursor];
+        o[HASH_ATTR] = cursor;
+        result.unshift(STORE[cursor]);
+        cursor = result[0][PARENT_ATTR];
+    }
+    return result;
 }
