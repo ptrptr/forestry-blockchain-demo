@@ -17,7 +17,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-        <QRCode value="Hello world!"></QRCode>
+        <QRCode value="Hello world!" level="M"></QRCode>
         </a>
       </header>
     </div>
