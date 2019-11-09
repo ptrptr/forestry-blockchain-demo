@@ -6,8 +6,8 @@ import {issue} from './HashStore';
 
 export default function QRPrinter() {
   var values = [1,2,3,4,5,6,7,8,9,10];
-  values.map((value) => {
-    issue({"seq":value});
+  var hashes = values.map((value) => {
+    return issue({"seq":value});
   });
 
   return (
@@ -16,8 +16,8 @@ export default function QRPrinter() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Issued {values.length} QR codes</p>
         <ul>
-            {values.map((value, index) => {
-                return <li>{index}:<a href={value}><QRCode value={value} level="M"></QRCode></a></li>
+            {hashes.map((value, index) => {
+                return <li key={index}>{index}:<a href={value}><QRCode value={value} level="M"></QRCode></a></li>
             })}
         </ul>
       </header>
