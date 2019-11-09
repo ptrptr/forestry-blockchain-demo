@@ -8,13 +8,18 @@ export const HASH_ATTR="_hash";
 function calcHash(o) {
     var message = JSON.stringify(o);
     const hash = createHash("sha256");
-    return hash.update(message).digest("base64");
+    return hash.update(message).digest("hex");
 }
 
 function store(o) {
     var hash = calcHash(o);
     STORE[hash] = o;
+    localStorage.setItem("STORE",JSON.stringify(STORE));
     return hash;
+}
+
+function reload() {
+    STORE = JSON.parse(localStorage.getItem("STORE"));
 }
 
 export function create(parent, data) {
@@ -35,6 +40,8 @@ export function issue(data) {
 }
 
 export function history(hash) {
+    reload();
+    console.log("HISTORY STORE:", STORE);
     var result = [];
     var cursor = hash;
     while(cursor != null && STORE[cursor] != null) {
