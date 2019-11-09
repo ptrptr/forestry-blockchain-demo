@@ -1,5 +1,6 @@
 import React from 'react';
 import QRPrinter from './QRPrinter';
+import QRIssuer from './QRIssuer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,11 +23,17 @@ export default function App() {
             <li>
               <Link to="/printer">Printer</Link>
             </li>
+            <li>
+              <Link to="/issue">Issue</Link>
+            </li>
           </ul>
         </nav>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+          <Router path="/issue">
+            <QRIssuer></QRIssuer>
+          </Router>
           <Route path="/printer">
             <QRPrinter />
           </Route>
