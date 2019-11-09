@@ -14,7 +14,9 @@ export default function QRPrinter() {
     <div className="App">
       <header className="App-header">
         <p>Issued {values.length} QR codes</p>
-        {hashes.map((value, index) => {
+        {hashes
+            .map((value, index) => "/history/" + value)
+            .map((value, index) => {
         return <div><h2>{value}</h2><a href={value}><QRCode value={value} level="M" size="120"></QRCode></a></div>
         })}
         </header>
