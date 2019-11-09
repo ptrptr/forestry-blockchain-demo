@@ -34,9 +34,7 @@ export default function App() {
           <Router path="/issue">
             <QRIssuer></QRIssuer>
           </Router>
-          <Route path="/printer">
-            <QRPrinter />
-          </Route>
+          <Route path="/printer/:hash" component={QRPrinter} />
           <Router path="/">
             <QRPrinter />
           </Router>

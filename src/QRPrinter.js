@@ -3,22 +3,16 @@ import QRCode from 'qrcode.react';
 import logo from './logo.svg';
 import './App.css';
 
-export default function QRPrinter() {
+export default function QRPrinter(props) {
+    const hash = props.match.params.hash;
   return (
     <div className="App">
       <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        <QRCode value="Content" level="M"></QRCode>
-        </a>
+        <QRCode value={hash} level="M"></QRCode>
         <br/>
         <br/>
         <br/>
-        <p>Content</p>
+        <p>{hash}</p>
       </header>
     </div>
   );
