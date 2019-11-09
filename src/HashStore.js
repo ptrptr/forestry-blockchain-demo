@@ -52,3 +52,13 @@ export function history(hash) {
     }
     return result;
 }
+
+export function find(hash) {
+    reload();
+    if(STORE[hash] == null) {
+        throw "Bad data";
+    }
+    var o = STORE[hash];
+    o[HASH_ATTR] = hash;
+    return o;
+}
