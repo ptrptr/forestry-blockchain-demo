@@ -13,14 +13,11 @@ export default function QRPrinter() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>Issued {values.length} QR codes</p>
-        <ul>
-            {hashes.map((value, index) => {
-                return <li key={index}>{index}:<a href={value}><QRCode value={value} level="M"></QRCode></a></li>
-            })}
-        </ul>
-      </header>
+        {hashes.map((value, index) => {
+        return <div><h2>{value}</h2><a href={value}><QRCode value={value} level="M" size="120"></QRCode></a></div>
+        })}
+        </header>
     </div>
   );
 }
