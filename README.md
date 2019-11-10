@@ -1,3 +1,16 @@
+## Prototype allows:
+* Issuing 10 initial QR codes
+* Viewing data related to codes and QR Code images
+* Issuing subproducts with single parent
+* Viewing ancestry of products
+
+## TODO:
+* Show descendants of products
+* More data fields
+* Multiple parents for subproducts
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
