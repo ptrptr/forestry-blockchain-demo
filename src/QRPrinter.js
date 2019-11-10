@@ -30,7 +30,7 @@ export default function QRPrinter(props) {
           <br/>
           <br/>
       <div>
-          <a href={BASE_URL + '/printer/' + hash}><QRCode value={BASE_URL + '/printer/' + hash} level="M"></QRCode></a>
+          <a href={BASE_URL + '/printer/' + hash}><QRCode value={BASE_URL + '/printer/' + hash} level="M" size="120"></QRCode></a>
           <br/>
           <br/>
           <br/>

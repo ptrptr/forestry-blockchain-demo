@@ -16,8 +16,8 @@ export default function QRPrinter() {
         <p>Issued {values.length} QR codes</p>
         {hashes
             .map((value, index) => {
-        return <div><h2>{value}</h2><a href={BASE_URL + "/history/" + value}>
-          <QRCode value={BASE_URL + "/history/" + value} level="M" size="120"></QRCode></a></div>
+        return <div><h2>{value}</h2><a href={BASE_URL + "/printer/" + value}>
+          <QRCode value={BASE_URL + "/printer/" + value} level="M" size="120"></QRCode></a></div>
         })}
     </div>
   );
