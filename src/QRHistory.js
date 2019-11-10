@@ -3,18 +3,17 @@ import QRCode from 'qrcode.react';
 import logo from './logo.svg';
 import {history, HASH_ATTR} from './HashStore';
 import './App.css';
+import {BASE_URL} from './settings';
 
 export default function QRHistory(props) {
     const hash = props.match.params.hash;
     const list = history(hash);
-    console.log("HISTORY: " + JSON.stringify(list));
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+        <h2>Ancestry for object <a href={BASE_URL + '/printer/' + hash}>{hash}</a>:</h2>
           {list.map((value, index) => {
-          return <h3>{value[HASH_ATTR]}</h3>
+          return <a href={BASE_URL + '/printer/' + value[HASH_ATTR]}>{value[HASH_ATTR]}</a>
           })}
-        </header>
     </div>
   );
 }
