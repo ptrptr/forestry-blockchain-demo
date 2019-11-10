@@ -42,7 +42,6 @@ export function issue(data) {
 
 export function history(hash) {
     reload();
-    console.log("HISTORY STORE:", STORE);
     var result = [];
     var cursor = hash;
     while(cursor != null && STORE[cursor] != null) {
