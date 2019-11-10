@@ -18,8 +18,8 @@ import {BASE_URL} from './settings';
 export default function App() {
   return (
     <Router>
-      <div class="App">
-        <nav class="App-nav">
+      <div className="App">
+        <nav className="App-nav">
            <div>
               <Link to="/printer">Printer</Link>
             </div>
