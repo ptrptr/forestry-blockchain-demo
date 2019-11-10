@@ -1,17 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import QRCode from 'qrcode.react';
 import logo from './logo.svg';
-import {find, HASH_ATTR} from './HashStore';
+import {create, find, HASH_ATTR} from './HashStore';
 import './App.css';
 
-export default function QRRegister(props) {
-    const parent = props.match.params.hash;
-    const parentObject = find(parent);    
-    return (
+export default class QRRegister extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            sku: ""
+        }
+
+        this.handleSkuChange = this.handleSkuChange.bind(this);
+        this.register = this.register.bind(this);
+    }
+    handleSkuChange(event) {
+        this.setState({sku: event.target.value});
+    }
+    register(event) {
+        var result = create(this.props.match.params.hash, this.state)
+    }
+
+    render(props) {
+        var parent = this.props.match.params.hash;
+        var parentObject = find(parent);
+        return (
         <div>
             <h3>Register product</h3>
-            <p>Source: {parent}></p>
-            <button>Register</button>
+            <p>Source: {this.props.match.params.hash}></p>
+            <label>SKU<input type="text" onChange={this.handleSkuChange} value={this.state.sku}></input></label>
+            <button onClick={this.register}>Register</button>
         </div>
-    );
+        );
+    }
 }
