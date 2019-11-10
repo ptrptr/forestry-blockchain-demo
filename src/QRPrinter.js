@@ -7,6 +7,12 @@ import {find} from './HashStore';
 export default function QRPrinter(props) {
     const hash = props.match.params.hash;
     const o = find(hash);
+    function subproduct() {
+      props.history.push("/register/" + hash);
+    }
+    function history() {
+      props.history.push("/history/" + hash);
+    }
   return (
     <div>
       <table>
@@ -24,6 +30,8 @@ export default function QRPrinter(props) {
           <br/>
           <p>{hash}</p>
       </div>
+      <button onClick={subproduct}>Create subproduct</button>
+      <button onClick={history}>Show history</button>
     </div>
   );
 }
