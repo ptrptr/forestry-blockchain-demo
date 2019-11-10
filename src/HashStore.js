@@ -23,6 +23,7 @@ function reload() {
 }
 
 export function create(parent, data) {
+    reload();
     if(data == null || data[PARENT_ATTR] != null && data[HASH_ATTR] != null) {
         throw "Bad data";
     }
@@ -34,8 +35,8 @@ export function create(parent, data) {
 }
     
 export function issue(data) {
+    reload();
     if(data == null) throw "Bad data";
-    console.log("DATA: " + JSON.stringify(STORE));
     return store(data);
 }
 
@@ -61,4 +62,8 @@ export function find(hash) {
     var o = STORE[hash];
     o[HASH_ATTR] = hash;
     return o;
+}
+
+export function reset() {
+    localStorage.setItem("STORE", "{}");
 }
