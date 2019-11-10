@@ -21,7 +21,7 @@ export default function App() {
       <div className="App">
         <nav className="App-nav">
            <div>
-              <Link to="/printer">Printer</Link>
+              <Link to="/">Start</Link>
             </div>
             <div>
               <Link to="/issue">Issue</Link>
