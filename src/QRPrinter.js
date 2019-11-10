@@ -15,6 +15,8 @@ export default function QRPrinter(props) {
     }
   return (
     <div>
+      <h2>{hash}</h2>
+      <h3>Object properties:</h3>
       <table>
         {Object.entries(o).map((entry,index)=> {
           if(entry[0][0] != '_') {
@@ -23,12 +25,14 @@ export default function QRPrinter(props) {
         })}
 
       </table>
+      <br/>
+          <br/>
+          <br/>
       <div>
           <QRCode value={hash} level="M"></QRCode>
           <br/>
           <br/>
           <br/>
-          <p>{hash}</p>
       </div>
       <button onClick={subproduct}>Create subproduct</button>
       <button onClick={history}>Show history</button>
