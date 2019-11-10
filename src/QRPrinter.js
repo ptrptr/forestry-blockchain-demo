@@ -3,6 +3,7 @@ import QRCode from 'qrcode.react';
 import logo from './logo.svg';
 import './App.css';
 import {find} from './HashStore';
+import {BASE_URL} from './settings.js';
 
 export default function QRPrinter(props) {
     const hash = props.match.params.hash;
@@ -29,7 +30,7 @@ export default function QRPrinter(props) {
           <br/>
           <br/>
       <div>
-          <QRCode value={hash} level="M"></QRCode>
+          <a href={BASE_URL + '/printer/' + hash}><QRCode value={BASE_URL + '/printer/' + hash} level="M"></QRCode></a>
           <br/>
           <br/>
           <br/>
