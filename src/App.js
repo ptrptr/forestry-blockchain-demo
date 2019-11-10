@@ -2,6 +2,7 @@ import React from 'react';
 import QRPrinter from './QRPrinter';
 import QRIssuer from './QRIssuer';
 import QRHistory from './QRHistory';
+import Intro from './Intro';
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,9 +19,6 @@ export default function App() {
     <Router>
       <div class="App">
         <nav class="App-nav">
-          <div>
-            <Link to="/">Home</Link>
-          </div>
            <div>
               <Link to="/printer">Printer</Link>
             </div>
@@ -38,7 +36,7 @@ export default function App() {
           <Route path="/printer/:hash" component={QRPrinter} />
           <Route path="/history/:hash" component={QRHistory} />
           <Router path="/">
-            <QRPrinter />
+            <Intro></Intro>
           </Router>
         </Switch>
       </div>
