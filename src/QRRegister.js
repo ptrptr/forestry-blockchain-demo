@@ -19,6 +19,7 @@ export default class QRRegister extends React.Component {
     }
     register(event) {
         var result = create(this.props.match.params.hash, this.state)
+        this.props.history.push("/printer/" + result);
     }
 
     render(props) {
