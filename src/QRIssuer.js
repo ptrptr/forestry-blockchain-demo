@@ -3,6 +3,7 @@ import QRCode from 'qrcode.react';
 import logo from './logo.svg';
 import './App.css';
 import {issue} from './HashStore';
+import {BASE_URL} from './settings';
 
 export default function QRPrinter() {
   var values = [1,2,3,4,5,6,7,8,9,10];
@@ -11,15 +12,13 @@ export default function QRPrinter() {
   });
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
         <p>Issued {values.length} QR codes</p>
         {hashes
-            .map((value, index) => "/history/" + value)
             .map((value, index) => {
-        return <div><h2>{value}</h2><a href={value}><QRCode value={value} level="M" size="120"></QRCode></a></div>
+        return <div><h2>{value}</h2><a href={BASE_URL + "/history/" + value}>
+          <QRCode value={BASE_URL + "/history/" + value} level="M" size="120"></QRCode></a></div>
         })}
-        </header>
     </div>
   );
 }

@@ -13,6 +13,7 @@ import QRCode from 'qrcode.react';
 import logo from './logo.svg';
 import './App.css';
 import QRRegister from './QRRegister';
+import {BASE_URL} from './settings';
 
 export default function App() {
   return (
