@@ -20,6 +20,9 @@ function store(o) {
 
 function reload() {
     STORE = JSON.parse(localStorage.getItem("STORE"));
+    if(STORE == null) {
+        STORE = {};
+    }
 }
 
 export function create(parent, data) {
